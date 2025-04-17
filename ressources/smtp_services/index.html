@@ -302,6 +302,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pulsecheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      PulseCheck
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#services-and-smtp-domains" class="md-nav__link">
     <span class="md-ellipsis">
       Services and SMTP Domains
@@ -314,15 +323,6 @@
   <a href="#important-notes" class="md-nav__link">
     <span class="md-ellipsis">
       Important Notes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#further-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Further Resources
     </span>
   </a>
   
@@ -371,6 +371,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pulsecheck" class="md-nav__link">
+    <span class="md-ellipsis">
+      PulseCheck
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#services-and-smtp-domains" class="md-nav__link">
     <span class="md-ellipsis">
       Services and SMTP Domains
@@ -383,15 +392,6 @@
   <a href="#important-notes" class="md-nav__link">
     <span class="md-ellipsis">
       Important Notes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#further-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Further Resources
     </span>
   </a>
   
@@ -415,6 +415,8 @@
 
 <h1 id="email-services-and-their-smtp-domains">Email Services and Their SMTP Domains<a class="headerlink" href="#email-services-and-their-smtp-domains" title="Permanent link">&para;</a></h1>
 <p>This table provides an overview of popular email services and their SMTP servers. It is especially helpful for configuring email clients or troubleshooting email sending issues.</p>
+<h2 id="pulsecheck">PulseCheck<a class="headerlink" href="#pulsecheck" title="Permanent link">&para;</a></h2>
+<p>PulseCheck uses the <a href="https://docs.python.org/3.9/library/smtplib.html">Python Standard Library</a> for sending E-Mails. </p>
 <h2 id="services-and-smtp-domains">Services and SMTP Domains<a class="headerlink" href="#services-and-smtp-domains" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -423,7 +425,7 @@
 <th><strong>SMTP Domain</strong></th>
 <th><strong>Port</strong></th>
 <th><strong>Encryption</strong></th>
-<th><strong>Additional Notes</strong></th>
+<th><strong>Notes</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -467,7 +469,7 @@
 <td>smtp.protonmail.com</td>
 <td>465</td>
 <td>SSL</td>
-<td>SMTP token required. (<a href="https://proton.me/support/smtp-submission">proton.me</a>)</td>
+<td>Requires SMTP token. (<a href="https://proton.me/support/smtp-submission">proton.me</a>)</td>
 </tr>
 <tr>
 <td><a href="https://support.apple.com/en-us/102525">iCloud Mail</a></td>
@@ -533,11 +535,11 @@
 <td>Web client only. (<a href="https://www.reddit.com/r/tutanota/comments/12chg0m/imap_and_smtp_settings_of_an_account_tutanota/">reddit.com</a>)</td>
 </tr>
 <tr>
-<td><a href="https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365">Rackspace Email</a></td>
+<td><a href="https://docs.rackspace.com/docs/rackspace-email-settings">Rackspace Email</a></td>
 <td>secure.emailsrvr.com</td>
 <td>465 / 587</td>
 <td>SSL / TLS</td>
-<td>Authentication required. (<a href="https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365">learn.microsoft.com</a>)</td>
+<td>Authentication required. (<a href="https://docs.rackspace.com/docs/rackspace-email-settings">docs.rackspace.com</a>)</td>
 </tr>
 <tr>
 <td><a href="https://www.bluehost.com/help/article/email-application-setup">Bluehost Mail</a></td>
@@ -562,19 +564,8 @@
 <li><strong>Port Numbers</strong>:</li>
 <li>Port 465: Commonly used for SSL connections.</li>
 <li>Port 587: Commonly used for TLS connections.</li>
-<li><strong>Tutanota</strong>: Tutanota does not support SMTP. You must use their web client or mobile app for email access.</li>
+<li><strong>Tutanota</strong>: Tutanota does not support SMTP. You must use their web client or mobile app for email access. Can't be used for PulseCheck</li>
 <li><strong>App Passwords</strong>: Some services, like Gmail and iCloud, require app-specific passwords for authentication in email clients.</li>
-</ul>
-<h2 id="further-resources">Further Resources<a class="headerlink" href="#further-resources" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://support.google.com/a/answer/176600?hl=en">Gmail Help Center</a></li>
-<li><a href="https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040">Outlook.com Settings</a></li>
-<li><a href="https://help.yahoo.com/kb/pop-access-settings-instructions-yahoo-mail-sln4724.html">Yahoo Mail Help</a></li>
-<li><a href="https://www.zoho.com/mail/help/zoho-smtp.html">Zoho Mail Help</a></li>
-<li><a href="https://proton.me/support/smtp-submission">ProtonMail Support</a></li>
-<li><a href="https://documentation.mailgun.com/docs/mailgun/user-manual/smtp-protocol/">Mailgun Documentation</a></li>
-<li><a href="https://www.twilio.com/docs/sendgrid/for-developers/sending-email/integrating-with-the-smtp-api">SendGrid Documentation</a></li>
-<li><a href="https://www.fastmail.help/hc/en-us/articles/1500000279921-IMAP-POP-and-SMTP">FastMail Help</a></li>
 </ul>
 
 
