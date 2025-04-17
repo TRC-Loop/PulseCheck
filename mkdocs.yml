@@ -1,0 +1,23 @@
+site_name: PulseCheck Docs
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: light-blue
+  logo: assets/PulseCheck.png
+  features:
+    - navigation.instant
+    - search.highlight
+    - header.autohide
+docs_dir: docs
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - codehilite
+  - admonition
+  - footnotes
+  - def_list
+  - pymdownx.superfences
+  - pymdownx.highlight
