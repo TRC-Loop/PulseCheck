@@ -1,17 +1,7 @@
-# Welcome to MkDocs
+# PulseCheck Docs
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+PulseCheck is a **self-hosted** domain status checker. 
+If the domain is offline you'll receive an Message via E-Mail, Discord WebHook and other Services.
 
-## Commands
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+# These docs are WIP
