@@ -1,9 +1,6 @@
 site_name: PulseCheck Docs
 theme:
   name: material
-  palette:
-    primary: blue
-    accent: light-blue
   logo: assets/PulseCheck.png
   features:
     - navigation.instant
