@@ -1,8 +1,303 @@
-<!--
- * author: AK
- * created on 17-04-2025-18h-09m
- * github: https://github.com/TRC-Loop
- * email: ak@stellar-code.com
- * copyright 2025
--->
-
+{% extends "base.html" %} {% block title %}Installation Steps{% endblock %} {%
+    block content %}
+    <div
+      class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 py-12 px-4 sm:px-6 lg:px-8"
+    >
+      <div class="max-w-md w-full space-y-8">
+        <div class="text-center">
+          <img
+            class="mx-auto h-12 w-auto filter invert"
+            src="{{ url_for('static', filename='img/PulseCheck.svg') }}"
+            alt="PulseCheck"
+          />
+          <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+            PulseCheck Setup
+          </h2>
+          <p class="mt-2 text-sm text-gray-600">
+            Configure PulseCheck to monitor your domains.
+          </p>
+        </div>
+    
+        <div class="rounded-md shadow-xl space-y-6 bg-white p-8">
+          <!-- Step 1: Welcome -->
+          <div id="step-1" class="step zoom-in" data-step="1">
+            <div class="flex items-center justify-start mb-4">
+              <i
+                class="ti ti-heartbeat text-3xl text-red-500 mr-2"
+                data-tabler="heartbeat"
+              ></i>
+              <h3 class="text-xl font-semibold text-gray-800">Welcome to PulseCheck</h3>
+            </div>
+            <p class="text-gray-700">
+              Welcome to the PulseCheck setup wizard! This application monitors your
+              domains and alerts you of any downtime. Click 'Next' to configure your
+              settings.
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+              PulseCheck uses a configurable crontab to periodically check your
+              domains.
+            </p>
+          </div>
+    
+          <!-- Step 2: Set Password -->
+          <div id="step-2" class="step zoom-in" data-step="2">
+            <div class="flex items-center justify-start mb-4">
+              <i
+                class="ti ti-lock text-3xl text-blue-500 mr-2"
+                data-tabler="lock"
+              ></i>
+              <h3 class="text-xl font-semibold text-gray-800">Set Admin Password</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              Set a strong password to protect your PulseCheck admin dashboard. This
+              password will be required to manage your domains and settings.
+            </p>
+            <form id="form-password">
+              <div class="mb-4">
+                <label
+                  for="password"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  Password
+                  <span
+                    class="ti ti-info-circle text-gray-400 ml-1 cursor-pointer"
+                    title="Enter your desired password for the admin dashboard"
+                  ></span>
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="confirm-password"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  Confirm Password
+                  <span
+                    class="ti ti-info-circle text-gray-400 ml-1 cursor-pointer"
+                    title="Re-enter your password to confirm it matches"
+                  ></span>
+                </label>
+                <input
+                  type="password"
+                  id="confirm-password"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+    
+          <!-- Step 3: Set SMTP Info -->
+          <div id="step-3" class="step zoom-in" data-step="3">
+            <div class="flex items-center justify-start mb-4">
+              <i
+                class="ti ti-mail-fast text-3xl text-green-500 mr-2"
+                data-tabler="mail-fast"
+              ></i>
+              <h3 class="text-xl font-semibold text-gray-800">Configure SMTP Settings</h3>
+            </div>
+            <p class="text-gray-600 mb-4">
+              PulseCheck uses SMTP (Simple Mail Transfer Protocol) to send you email
+              alerts when a domain is down. Please provide your SMTP credentials.
+            </p>
+            <form id="form-smtp">
+              <div class="mb-4">
+                <label
+                  for="smtp-domain"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  SMTP Domain
+                  <span
+                    class="ti ti-info-circle text-gray-400 ml-1 cursor-pointer"
+                    title="The domain name of your SMTP server (e.g., smtp.example.com)"
+                  ></span>
+                </label>
+                <input
+                  type="text"
+                  id="smtp-domain"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="smtp-user"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  SMTP User
+                  <span
+                    class="ti ti-info-circle text-gray-400 ml-1 cursor-pointer"
+                    title="Your SMTP username"
+                  ></span>
+                </label>
+                <input
+                  type="text"
+                  id="smtp-user"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="smtp-password"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  SMTP Password
+                  <span
+                    class="ti ti-info-circle text-gray-400 ml-1 cursor-pointer"
+                    title="Your SMTP password"
+                  ></span>
+                </label>
+                <input
+                  type="password"
+                  id="smtp-password"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="sender-email"
+                  class="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  Sender Email
+                  <span
+                    class="ti ti-info-circle text-gray-400 ml-1 cursor-pointer"
+                    title="The email address PulseCheck will use to send alerts"
+                  ></span>
+                </label>
+                <input
+                  type="email"
+                  id="sender-email"
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                />
+              </div>
+            </form>
+          </div>
+    
+          <!-- Navigation Buttons -->
+          <nav
+            class="sticky bottom-0 px-4 py-3 bg-gray-50 flex justify-between items-center"
+          >
+            <button
+              class="group flex items-center bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out"
+              type="button"
+              id="btn-prev"
+              onclick="changeStep(-1)"
+              disabled
+            >
+              <i
+                class="ti ti-arrow-left mr-2 group-hover:-translate-x-1 transition-transform duration-200"
+                data-tabler="arrow-left"
+              ></i>
+              Back
+            </button>
+            <button
+              class="group flex items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out"
+              type="button"
+              id="btn-next"
+              onclick="changeStep(1)"
+            >
+              Next
+              <i
+                class="ti ti-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-200"
+                data-tabler="arrow-right"
+              ></i>
+            </button>
+          </nav>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      /* Base styles for steps (hidden by default) */
+      .step {
+        display: none;
+      }
+    
+      /* Zoom-in animation */
+      .zoom-in {
+        animation: zoomIn 0.4s ease-out forwards;
+      }
+    
+      @keyframes zoomIn {
+        0% {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+    
+    <script src="https://cdn.tabler.io/sdk/tabler-icons.min.js"></script>
+    <script>
+      const steps = document.querySelectorAll(".step");
+      let currentStep = 0;
+    
+      // Initialize tooltips (using Tippy.js or similar)
+      document.addEventListener("DOMContentLoaded", function () {
+        // You'll need to include Tippy.js or another tooltip library for this to work.
+        // Example using Tippy.js (https://atomiks.github.io/tippyjs/):
+        // tippy('[data-tippy-content]');
+    
+        // For a simpler approach without a library, you can use the title attribute:
+        const infoIcons = document.querySelectorAll(".ti-info-circle");
+        infoIcons.forEach((icon) => {
+          const tooltipText = icon.getAttribute("title");
+          icon.addEventListener("mouseover", (event) => {
+            // You could implement a simple tooltip display here using a div and setting its position.
+            // For example:
+            const tooltip = document.createElement("div");
+            tooltip.textContent = tooltipText;
+            tooltip.className = "tooltip"; // Add a class for styling
+            tooltip.style.position = "absolute";
+            tooltip.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+            tooltip.style.color = "white";
+            tooltip.style.padding = "5px";
+            tooltip.style.borderRadius = "3px";
+            tooltip.style.zIndex = "1000";
+            tooltip.style.left = event.pageX + 10 + "px";
+            tooltip.style.top = event.pageY + 10 + "px";
+            document.body.appendChild(tooltip);
+    
+            icon.addEventListener("mouseout", () => {
+              tooltip.remove();
+            });
+          });
+        });
+      });
+    
+      function changeStep(direction) {
+        // Hide the current step
+        steps[currentStep].style.display = "none";
+    
+        currentStep += direction;
+    
+        // Ensure we don't go out of bounds
+        if (currentStep < 0) {
+          currentStep = 0;
+        } else if (currentStep >= steps.length) {
+          currentStep = steps.length - 1;
+          alert("Installation complete!"); // Replace with your actual submission/redirection
+          return;
+        }
+    
+        // Show the next step
+        steps[currentStep].style.display = "block";
+        steps[currentStep].classList.add("zoom-in"); // Apply zoom-in animation
+    
+        // Update button states
+        const btnPrev = document.getElementById("btn-prev");
+        const btnNext = document.getElementById("btn-next");
+    
+        btnPrev.disabled = currentStep === 0;
+        btnNext.innerText = currentStep === steps.length - 1 ? "Finish" : "Next";
+      }
+    </script>
+    {% endblock %}
+    
